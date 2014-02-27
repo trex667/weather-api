@@ -1,4 +1,13 @@
+# Directories #
+target/
+
+# Java Files #
 *.class
+
+# Project Files #
+*.iml
+*.ipr
+*.iws
 
 # Package Files #
 *.jar
