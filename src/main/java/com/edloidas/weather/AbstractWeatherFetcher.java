@@ -1,6 +1,6 @@
-package com.edloidas.weather.forecast;
+package com.edloidas.weather;
 
-import com.edloidas.weather.WeatherFetcher;
+import com.edloidas.weather.forecast.WeatherForecast;
 import com.edloidas.weather.forecast.elements.Coordinates;
 import org.apache.log4j.Logger;
 

@@ -1,15 +1,20 @@
 package com.edloidas.weather.forecast.elements;
 
 /**
- * POJO. Geographical coordinates.
+ * POJO
+ * Geographical coordinates.
  */
 public class Coordinates {
 
     // Longitude
-    private float lon = 0;
-
+    private float lon;
     // Latitude
-    private float lat = 0;
+    private float lat;
+
+    public Coordinates() {
+        this.lon = 0;
+        this.lat = 0;
+    }
 
     public Coordinates(float lon, float lat) {
         this.lon = lon;

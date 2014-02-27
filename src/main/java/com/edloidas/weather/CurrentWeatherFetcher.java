@@ -1,10 +1,9 @@
 package com.edloidas.weather;
 
-import com.edloidas.weather.forecast.AbstractWeatherFetcher;
 import com.edloidas.weather.forecast.CurrentWeatherForecast;
-import com.edloidas.weather.forecast.WeatherForecast;
 import com.edloidas.weather.forecast.elements.Coordinates;
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * Created by mtaukachou.
@@ -27,12 +26,18 @@ public class CurrentWeatherFetcher extends AbstractWeatherFetcher {
      * @return weather forecast for the current moment.
      */
     public CurrentWeatherForecast fetch() {
-        try {
-            CurrentWeatherForecast forecast = new CurrentWeatherForecast();
+        CurrentWeatherForecast forecast = null;
+        String json = fetchJson();
 
-        } catch (Exception ex) {
-            LOGGER.error(ex);
+        if (!json.isEmpty() && !json.contains("\"cod\":\"404\"")) {
+            try {
+                ObjectMapper mapper = new ObjectMapper();
+                forecast = mapper.readValue(json, CurrentWeatherForecast.class);
+            } catch (Exception ex) {
+                LOGGER.error(ex);
+            }
         }
-        return null;
+
+        return forecast;
     }
 }

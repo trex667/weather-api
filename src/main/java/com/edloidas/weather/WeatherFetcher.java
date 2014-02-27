@@ -2,8 +2,6 @@ package com.edloidas.weather;
 
 import com.edloidas.weather.forecast.WeatherForecast;
 
-import java.io.IOException;
-
 /**
  * Weather fetcher interface.
  * Fetches data and generates forecast.
