@@ -1,7 +1,5 @@
-package com.edloidas;
+package com.edloidas.weather;
 
-import com.edloidas.weather.CurrentWeatherFetcher;
-import com.edloidas.weather.WeatherFetcher;
 import com.edloidas.weather.forecast.elements.Coordinates;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
