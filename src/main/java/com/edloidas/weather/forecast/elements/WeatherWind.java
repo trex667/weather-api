@@ -1,9 +1,12 @@
 package com.edloidas.weather.forecast.elements;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  * POJO
  * Weather wind data.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherWind {
 
     private float speed;

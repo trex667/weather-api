@@ -1,9 +1,12 @@
 package com.edloidas.weather.forecast.elements;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  * POJO
  * Weather metadata.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherData {
 
     private int id;
