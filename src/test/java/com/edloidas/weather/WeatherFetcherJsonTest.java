@@ -3,14 +3,15 @@ package com.edloidas.weather;
 import com.edloidas.weather.forecast.elements.Coordinates;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 /**
- * Unit test for simple App.
+ * Unit test for wrong data retrieving.
  */
-public class WeatherFetcherJsonTest extends Assert {
+public class WeatherFetcherJsonTest {
 
     private static Logger LOGGER = Logger.getLogger(WeatherFetcherJsonTest.class);
 

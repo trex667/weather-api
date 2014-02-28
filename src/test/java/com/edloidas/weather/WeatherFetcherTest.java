@@ -3,16 +3,18 @@ package com.edloidas.weather;
 import com.edloidas.weather.forecast.WeatherForecast;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 /**
- * Unit test for simple App.
+ * Unit tests for the JSON parsing operations.
  */
-public class WeatherFetcherTest extends Assert {
+public class WeatherFetcherTest {
 
     private static Logger LOGGER = Logger.getLogger(WeatherFetcherTest.class);
 
@@ -43,7 +45,7 @@ public class WeatherFetcherTest extends Assert {
     public void testWrongCity()
     {
         try {
-            WeatherFetcher fetcher = new CurrentWeatherFetcher("qwerrty");
+            WeatherFetcher fetcher = new CurrentWeatherFetcher("qwerty");
             WeatherForecast forecast = fetcher.fetch();
 
             assertNull(forecast);
