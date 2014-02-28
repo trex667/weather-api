@@ -154,15 +154,19 @@ public class CurrentWeatherForecast implements WeatherForecast {
     }
 
     public String format() {
-        return name + ", " + sys.getCountry() +
-               " (" + coord.getLon() + "," + coord.getLat() + ")" +
-               ": t=" + main.getTemp() + "°C, " + main.getPressure() + "atm";
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(", ").append(sys.getCountry())
+          .append(" (").append(coord.getLon()).append(",").append(coord.getLat()).append(")")
+          .append(": t=").append(main.getTemp()).append("°C, ").append(main.getPressure()).append("atm");
+
+        return sb.toString();
     }
 
     @Override
     public String toString() {
-        return "{" +
-                "cod:" + cod +
-                "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\"cod\":").append(cod).append("}");
+
+        return sb.toString();
     }
 }

@@ -12,30 +12,40 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * Created by mtaukachou.
+ * Abstract class, that represents fetcher object.
+ * Retrieves json data and parses it.
  */
 public abstract class AbstractWeatherFetcher implements WeatherFetcher {
 
     private static Logger LOGGER = Logger.getLogger(AbstractWeatherFetcher.class);
 
-    private String url = null;
+    private StringBuilder url = null;
+
+    protected static String urlOrigin = "http://api.openweathermap.org/data/2.5/weather?";
+    protected static String urlConfig = "&units=metric";
 
     public AbstractWeatherFetcher(String city) {
-        this.url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric";
+        this.url = new StringBuilder();
+        this.url.append(urlOrigin).append("q=").append(city).append(urlConfig);
     }
 
     public AbstractWeatherFetcher(Coordinates coord) {
-        this.url = "http://api.openweathermap.org/data/2.5/weather?lat=" +
-                   coord.getLat() + "&lon=" + coord.getLon() + "&units=metric";
+        this.url = new StringBuilder();
+        this.url.append(urlOrigin)
+                .append("lat=").append(coord.getLat())
+                .append("&lon=").append(coord.getLon()).append(urlConfig);
     }
 
     private void setLocation(String city) {
-        this.url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric";
+        this.url = new StringBuilder();
+        this.url.append(urlOrigin).append("q=").append(city).append(urlConfig);
     }
 
     private void setLocation(Coordinates coord) {
-        this.url = "http://api.openweathermap.org/data/2.5/weather?lat=" +
-                   coord.getLat() + "&lon=" + coord.getLon() + "&units=metric";
+        this.url = new StringBuilder();
+        this.url.append(urlOrigin)
+                .append("lat=").append(coord.getLat())
+                .append("&lon=").append(coord.getLon()).append(urlConfig);
     }
 
     /**
@@ -48,7 +58,7 @@ public abstract class AbstractWeatherFetcher implements WeatherFetcher {
         StringBuilder sb = new StringBuilder();
 
         try {
-            URL weather = new URL(url);
+            URL weather = new URL(url.toString());
             URLConnection conn = weather.openConnection();
 
             reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
