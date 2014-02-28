@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class WeatherFetcherJsonTest {
 
-    private static Logger LOGGER = Logger.getLogger(WeatherFetcherJsonTest.class);
+    private static final Logger LOGGER = Logger.getLogger(WeatherFetcherJsonTest.class);
 
     @BeforeClass
     public static void beforeWeatherFetcherTest() {

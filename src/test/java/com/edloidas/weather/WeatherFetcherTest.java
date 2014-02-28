@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
  */
 public class WeatherFetcherTest {
 
-    private static Logger LOGGER = Logger.getLogger(WeatherFetcherTest.class);
+    private static final Logger LOGGER = Logger.getLogger(WeatherFetcherTest.class);
 
     @BeforeClass
     public static void beforeWeatherFetcherTest() {

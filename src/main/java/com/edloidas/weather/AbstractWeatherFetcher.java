@@ -17,12 +17,12 @@ import java.net.URLConnection;
  */
 public abstract class AbstractWeatherFetcher implements WeatherFetcher {
 
-    private static Logger LOGGER = Logger.getLogger(AbstractWeatherFetcher.class);
+    private static final Logger LOGGER = Logger.getLogger(AbstractWeatherFetcher.class);
 
     private StringBuilder url = null;
 
-    protected static String urlOrigin = "http://api.openweathermap.org/data/2.5/weather?";
-    protected static String urlConfig = "&units=metric";
+    protected static final String urlOrigin = "http://api.openweathermap.org/data/2.5/weather?";
+    protected static final String urlConfig = "&units=metric";
 
     public AbstractWeatherFetcher(String city) {
         this.url = new StringBuilder();
@@ -68,8 +68,6 @@ public abstract class AbstractWeatherFetcher implements WeatherFetcher {
                 sb.append(line);
             }
             reader.close();
-        } catch (MalformedURLException muEx) {
-            LOGGER.error(muEx);
         } catch (IOException ioEx) {
             LOGGER.error(ioEx);
         } finally {
@@ -80,9 +78,9 @@ public abstract class AbstractWeatherFetcher implements WeatherFetcher {
                     e.printStackTrace();
                 }
             }
-
-            return sb.toString();
         }
+
+        return sb.toString();
     }
 
     /**

@@ -11,7 +11,7 @@ import org.codehaus.jackson.map.ObjectMapper;
  */
 public class CurrentWeatherFetcher extends AbstractWeatherFetcher {
 
-    private static Logger LOGGER = Logger.getLogger(CurrentWeatherFetcher.class);
+    private static final Logger LOGGER = Logger.getLogger(CurrentWeatherFetcher.class);
 
     public CurrentWeatherFetcher(String city) {
         super(city);
