@@ -1,7 +1,8 @@
 package com.edloidas.weather.forecast;
 
 /**
- * Created by mtaukachou.
+ * Weather forecast interface.
+ * Manage to format forecast.
  */
 public interface WeatherForecast {
 

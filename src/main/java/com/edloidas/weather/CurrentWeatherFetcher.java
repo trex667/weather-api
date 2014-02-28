@@ -6,7 +6,8 @@ import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 
 /**
- * Created by mtaukachou.
+ * Class represents weather fetcher
+ * of the forecast for the current moment.
  */
 public class CurrentWeatherFetcher extends AbstractWeatherFetcher {
 
